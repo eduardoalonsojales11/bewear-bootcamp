@@ -1,11 +1,30 @@
-import { Button } from "@/components/ui/button";
+import Header from "@/components/common/header";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const Home = () => {
+import SignInForm from "./authentication/components/sign-in-form";
+import SignUpForm from "./authentication/components/sign-up-form";
+
+const Authentication = async () => {
   return (
-    <div>
-      <Button>Bootcamp</Button>
-    </div>
+    <>
+      <Header />
+
+      <div className="flex w-full flex-col gap-6 p-5">
+        <Tabs defaultValue="sign-in">
+          <TabsList>
+            <TabsTrigger value="sign-in">Entrar</TabsTrigger>
+            <TabsTrigger value="sign-up">Criar conta</TabsTrigger>
+          </TabsList>
+          <TabsContent value="sign-in" className="w-full">
+            <SignInForm />
+          </TabsContent>
+          <TabsContent value="sign-up" className="w-full">
+            <SignUpForm />
+          </TabsContent>
+        </Tabs>
+      </div>
+    </>
   );
 };
 
-export default Home;
+export default Authentication;
